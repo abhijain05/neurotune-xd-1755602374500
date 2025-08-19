@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebDynpro xmlns="http://www.sap.com/wd/webdynpro">
+  <View name="OrderListView">
+    <Title>SAPUI5 App</Title>
+    <Group id="mainContentGroup" layout="VerticalFlowLayout">
+
+      <!-- Search Section -->
+      <MatrixLayout id="searchLayout" colCount="3" width="100%">
+        <MatrixLayoutCell rowSpan="1" colSpan="2">
+          <InputField id="searchField" value="{/searchQuery}" placeholder="Search"/>
+        </MatrixLayoutCell>
+        <MatrixLayoutCell rowSpan="1" colSpan="1">
+          <Button id="goButton" text="Go" onAction="onGo"/>
+        </MatrixLayoutCell>
+      </MatrixLayout>
+
+      <!-- Filter Section -->
+      <FormContainer id="filterFormContainer" title="Filter" width="100%">
+        <FormElement id="statusFormElement">
+          <Label id="statusLabel" text="Status" labelFor="statusDropDown"/>
+          <DropDownByKey id="statusDropDown" selectedKey="{/filter/status}" width="auto" onSelect="onStatusFilterChange">
+            <Item key="" text="Status"/>
+            <Item key="IN_PROCESS" text="In Process"/>
+            <Item key="SHIPPED" text="Shipped"/>
+          </DropDownByKey>
+        </FormElement>
+      </FormContainer>
+
+      <!-- Table Section -->
+      <Table id="orderTable" dataSource="{/orders}">
+        <Columns>
+          <Column id="orderIdCol">
+            <Header>
+              <TextView text="Order ID"/>
+            </Header>
+            <Template>
+              <TextView text="{OrderID}"/>
+            </Template>
+          </Column>
+          <Column id="productCol">
+            <Header>
+              <TextView text="Product"/>
+            </Header>
+            <Template>
+              <TextView text="{Product}"/>
+            </Template>
+          </Column>
+          <Column id="statusCol">
+            <Header>
+              <TextView text="Status"/>
+            </Header>
+            <Template>
+              <TextView text="{Status}"/>
+            </Template>
+          </Column>
+          <Column id="amountCol">
+            <Header>
+              <TextView text="Amount"/>
+            </Header>
+            <Template>
+              <TextView text="{Amount}"/>
+            </Template>
+          </Column>
+        </Columns>
+      </Table>
+    </Group>
+  </View>
+  <Controller name="OrderListViewController">
+    <Method name="onGo">
+      <Description>Handles the action when the 'Go' button is pressed to initiate a search.</Description>
+      <Parameters/>
+      <Implementation>
+        <!-- This method would typically read the value from 'searchField' 
+             using wdContext.currentContextElement().getSearchQuery() 
+             and trigger a backend call or filter local data. -->
+        <![CDATA[
+          String searchQuery = wdContext.currentContextElement().getSearchQuery();
+          // Implement search logic here, e.g., call a backend service
+          wdComponentAPI.getMessageManager().reportSuccess("Search initiated for: " + searchQuery);
+        ]]>
+      </Implementation>
+    </Method>
+    <Method name="onStatusFilterChange">
+      <Description>Handles the selection change in the status dropdown to filter table data.</Description>
+      <Parameters/>
+      <Implementation>
+        <!-- This method would read the selected key from 'statusDropDown' 
+             and apply filtering to the '/orders' context node. -->
+        <![CDATA[
+          String selectedStatus = wdContext.currentContextElement().getFilter().getStatus();
+          // Implement filtering logic here, e.g., modify '/orders' collection
+          wdComponentAPI.getMessageManager().reportSuccess("Filter changed to status: " + selectedStatus);
+        ]]>
+      </Implementation>
+    </Method>
+  </Controller>
+</WebDynpro>
