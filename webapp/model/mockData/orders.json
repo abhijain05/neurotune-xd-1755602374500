@@ -1,0 +1,82 @@
+{
+  "orders": [
+    {
+      "OrderID": "ORD-2024-001",
+      "Product": "Laptop",
+      "Status": "Shipped",
+      "Amount": "1200.00"
+    },
+    {
+      "OrderID": "ORD-2024-002",
+      "Product": "Tablet",
+      "Status": "In Process",
+      "Amount": "300.00"
+    },
+    {
+      "OrderID": "ORD-2024-003",
+      "Product": "Mouse",
+      "Status": "Shipped",
+      "Amount": "25.00"
+    },
+    {
+      "OrderID": "ORD-2024-004",
+      "Product": "Keyboard",
+      "Status": "In Process",
+      "Amount": "75.00"
+    },
+    {
+      "OrderID": "ORD-2024-005",
+      "Product": "Monitor",
+      "Status": "Shipped",
+      "Amount": "400.00"
+    },
+    {
+      "OrderID": "ORD-2024-006",
+      "Product": "Headphones",
+      "Status": "In Process",
+      "Amount": "100.00"
+    },
+    {
+      "OrderID": "ORD-2024-007",
+      "Product": "Webcam",
+      "Status": "Shipped",
+      "Amount": "50.00"
+    },
+    {
+      "OrderID": "ORD-2024-008",
+      "Product": "Printer",
+      "Status": "In Process",
+      "Amount": "200.00"
+    },
+    {
+      "OrderID": "ORD-2024-009",
+      "Product": "Desk",
+      "Status": "Shipped",
+      "Amount": "300.00"
+    },
+    {
+      "OrderID": "ORD-2024-010",
+      "Product": "Chair",
+      "Status": "In Process",
+      "Amount": "100.00"
+    },
+    {
+      "OrderID": "ORD-2024-011",
+      "Product": "Lamp",
+      "Status": "Shipped",
+      "Amount": "50.00"
+    },
+    {
+      "OrderID": "ORD-2024-012",
+      "Product": "Phone",
+      "Status": "In Process",
+      "Amount": "800.00"
+    },
+    {
+      "OrderID": "ORD-2024-013",
+      "Product": "Tablet",
+      "Status": "Shipped",
+      "Amount": "400.00"
+    }
+  ]
+}
